@@ -9,7 +9,7 @@ import (
 )
 
 type LoginReq struct {
-	Code int `json:"code"`
+	Code string `json:"code"`
 }
 
 type LoginResp struct {
@@ -26,7 +26,7 @@ func UserLogin(ctx context.Context) {
 		SendResponse(ctx, http.StatusBadRequest, "Parse to json failed", err.Error())
 		return
 	}
-	if lr.Code == 0 {
+	if lr.Code == "" {
 		SendResponse(ctx, http.StatusBadRequest, "code is required", "")
 		return
 	}
