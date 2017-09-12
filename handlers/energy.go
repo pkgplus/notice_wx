@@ -50,20 +50,20 @@ func EneryCount(ctx context.Context) {
 		return
 	}
 
-	// openid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
-	unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
-	if unionid == "" {
-		SendResponse(ctx, http.StatusInternalServerError, "read unionid failed from context", "")
+	uid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
+	// uid := ctx.Values().GetString(CONTEXT_UNION_TAG)
+	if uid == "" {
+		SendResponse(ctx, http.StatusInternalServerError, "read openid failed from context", "")
 		return
 	}
 
-	// count := store.GetEnergyCount(unionid)
+	// count := store.GetEnergyCount(uid)
 	// if err != nil {
 	// 	SendResponse(ctx, http.StatusInternalServerError, "get energy count failed", err.Error())
 	// 	return
 	// }
 
-	ctx.JSON(map[string]int64{"count": store.GetEnergyCount(unionid)})
+	ctx.JSON(map[string]int64{"count": store.GetEnergyCount(uid)})
 }
 
 func PopEnergy(ctx context.Context) {
