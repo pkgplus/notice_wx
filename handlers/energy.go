@@ -26,14 +26,14 @@ func AddEnery(ctx context.Context) {
 		return
 	}
 
-	// openid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
-	unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
-	if unionid == "" {
-		SendResponse(ctx, http.StatusInternalServerError, "read unionid failed from context", "")
+	uid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
+	// unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
+	if uid == "" {
+		SendResponse(ctx, http.StatusInternalServerError, "read openid failed from context", "")
 		return
 	}
 
-	err = store.AddEnergy(unionid, energy)
+	err = store.AddEnergy(uid, energy)
 	if err != nil {
 		SendResponse(ctx, http.StatusInternalServerError, "add energy failed", err.Error())
 		return
@@ -74,14 +74,14 @@ func PopEnergy(ctx context.Context) {
 		return
 	}
 
-	// openid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
-	unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
-	if unionid == "" {
-		SendResponse(ctx, http.StatusInternalServerError, "read unionid failed from context", "")
+	uid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
+	// unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
+	if uid == "" {
+		SendResponse(ctx, http.StatusInternalServerError, "read openid failed from context", "")
 		return
 	}
 
-	energy, err := store.PopEnergy(unionid)
+	energy, err := store.PopEnergy(uid)
 	if err != nil {
 		SendResponse(ctx, http.StatusInternalServerError, "pop one energy failed", err.Error())
 		return
