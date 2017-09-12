@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/kataras/iris/context"
-	"github.com/xuebing1110/noticeplat/user"
+	// "github.com/xuebing1110/noticeplat/user"
 	"github.com/xuebing1110/noticeplat/wechat"
 )
 
@@ -31,13 +31,6 @@ func UserLogin(ctx context.Context) {
 		return
 	}
 
-	// create session
-	sess_3rd, err := user.GetRandomID(16)
-	if err != nil {
-		SendResponse(ctx, http.StatusInternalServerError, "create 3rd_sess failed", err.Error())
-		return
-	}
-
 	// storage
 	store, ok := GetStorage(ctx)
 	if !ok {
@@ -51,6 +44,14 @@ func UserLogin(ctx context.Context) {
 		SendResponse(ctx, http.StatusInternalServerError, "jscode2session failed", err.Error())
 		return
 	}
+
+	// create session
+	sess_3rd := sessRet.OpenID
+	// sess_3rd, err := user.GetRandomID(16)
+	// if err != nil {
+	// 	SendResponse(ctx, http.StatusInternalServerError, "create 3rd_sess failed", err.Error())
+	// 	return
+	// }
 
 	// storage
 	err = store.SaveSession(sess_3rd, sessRet)

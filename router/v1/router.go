@@ -13,13 +13,13 @@ func InitRouter(app *iris.Application) {
 	// api.Post("/users")
 	api.Post("/login", handlers.UserLogin)
 	// api.Post("/users", handlers.CreateUser)
-	// api.Put("/session/:uid")
+	// api.Put("/user/:sid")
 
 	// enery
-	api.Post("/session/:sid/enery", handlers.SessionCheck, handlers.AddEnery)
-	api.Get("/session/:sid/enery/count", handlers.SessionCheck, handlers.EneryCount)
-	api.Get("/session/:sid/enery/one", handlers.SessionCheck, handlers.PopEnergy)
+	api.Post("/session/:sid/energy", handlers.SessionCheck, handlers.AddEnery)
+	api.Get("/session/:sid/energy/count", handlers.SessionCheck, handlers.EneryCount)
+	api.Get("/session/:sid/energy/one", handlers.SessionCheck, handlers.PopEnergy)
 
 	// plugin
-	api.Post("/session/:sid/plugins", handlers.SessionCheck, handlers.UserLogin)
+	api.Post("/session/:sid/plugins", handlers.SessionCheck, handlers.AddUserPlugin)
 }

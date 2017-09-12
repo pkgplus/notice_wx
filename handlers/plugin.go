@@ -15,10 +15,10 @@ func AddUserPlugin(ctx context.Context) {
 		return
 	}
 
-	// openid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
-	unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
-	if unionid == "" {
-		SendResponse(ctx, http.StatusInternalServerError, "read unionid failed from context", "")
+	uid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
+	// unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
+	if uid == "" {
+		SendResponse(ctx, http.StatusInternalServerError, "read openid failed from context", "")
 		return
 	}
 
@@ -28,7 +28,7 @@ func AddUserPlugin(ctx context.Context) {
 		SendResponse(ctx, http.StatusBadRequest, "parse to json failed", err.Error())
 		return
 	}
-	userplugin.UnionID = unionid
+	userplugin.UserID = uid
 
 	err = store.AddUserPlugin(userplugin)
 	if err != nil {

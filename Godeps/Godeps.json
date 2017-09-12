@@ -248,6 +248,11 @@
 			"Rev": "09cded8978dc9e80714c4d85b0322337b0a1e5e0"
 		},
 		{
+			"ImportPath": "github.com/klauspost/crc32",
+			"Comment": "v1.1-5-gbab58d7",
+			"Rev": "bab58d77464aa9cf4e84200c3276da0831fe0c03"
+		},
+		{
 			"ImportPath": "github.com/microcosm-cc/bluemonday",
 			"Rev": "e79763773ab6222ca1d5a7cbd9d62d83c1f77081"
 		},
@@ -272,24 +277,28 @@
 			"Rev": "5bf94b69c6b68ee1b541973bb8e1144db23a194b"
 		},
 		{
+			"ImportPath": "github.com/shurcooL/sanitized_anchor_name",
+			"Rev": "541ff5ee47f1dddf6a5281af78307d921524bcb5"
+		},
+		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/plugin/cron",
-			"Rev": "37b19f07a325bcf106312c322ca417d895cd2c8c"
+			"Rev": "e2f13ecbb525e4c62f6c2d903d9f36683b47999c"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/storage",
-			"Rev": "37b19f07a325bcf106312c322ca417d895cd2c8c"
+			"Rev": "e2f13ecbb525e4c62f6c2d903d9f36683b47999c"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/storage/redis",
-			"Rev": "37b19f07a325bcf106312c322ca417d895cd2c8c"
+			"Rev": "e2f13ecbb525e4c62f6c2d903d9f36683b47999c"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/user",
-			"Rev": "37b19f07a325bcf106312c322ca417d895cd2c8c"
+			"Rev": "e2f13ecbb525e4c62f6c2d903d9f36683b47999c"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/wechat",
-			"Rev": "37b19f07a325bcf106312c322ca417d895cd2c8c"
+			"Rev": "e2f13ecbb525e4c62f6c2d903d9f36683b47999c"
 		},
 		{
 			"ImportPath": "golang.org/x/crypto/acme",
