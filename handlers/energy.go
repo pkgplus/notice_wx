@@ -14,7 +14,7 @@ func AddEnery(ctx context.Context) {
 	}
 
 	eneryMap := make(map[string]string)
-	err := ctx.ReadJSON(eneryMap)
+	err := ctx.ReadJSON(&eneryMap)
 	if err != nil {
 		SendResponse(ctx, http.StatusBadRequest, "parse json failed", err.Error())
 		return
