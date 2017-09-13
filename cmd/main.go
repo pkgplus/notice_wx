@@ -8,6 +8,8 @@ import (
 	"github.com/xuebing1110/notice_wx/handlers"
 	"github.com/xuebing1110/notice_wx/router/v1"
 	"github.com/xuebing1110/noticeplat/storage/redis"
+
+	_ "github.com/xuebing1110/noticeplat/plugin/hrsign"
 )
 
 func main() {
