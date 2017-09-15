@@ -181,10 +181,9 @@ func (rs *RedisStorage) DelUserPlugin(uid, pluginid string) error {
 func (rs *RedisStorage) FetchTasks(curtime int64, handler func(*user.UserPlugin) error) error {
 	ret := rs.ZRevRangeByScoreWithScores(
 		TASKS_SORTSET,
-		&redis.ZRangeBy{
-			Min:   0,
-			Max:   curtime,
-			Count: 2000,
+		redis.ZRangeBy{
+			Min: "0",
+			Max: "curtime",
 		})
 	retZs, err := ret.Result()
 	if err != nil {
