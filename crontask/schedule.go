@@ -1,6 +1,7 @@
 package crontask
 
 import (
+	"log"
 	"time"
 
 	crontab "github.com/robfig/cron"
@@ -13,6 +14,7 @@ import (
 func Schedual(store storage.Storage) {
 	// plugin executor
 	var pluginExecutor = func(uPlugin *user.UserPlugin) error {
+		// log.Printf("%+v", uPlugin)
 		p, err := plugin.GetPlugin(uPlugin.PluginType)
 		if err != nil {
 			return err
@@ -23,19 +25,25 @@ func Schedual(store storage.Storage) {
 			return err
 		}
 
-		formid, err := store.PopEnergy(uPlugin.UserID)
-		if err != nil {
-			return err
-		}
-
 		if shouldNotice {
+			formid, err := store.PopEnergy(uPlugin.UserID)
+			if err != nil {
+				return err
+			}
+
 			msg := wechat.NewTemplateMsg(
 				uPlugin.UserID,
 				p.GetTemplateMsgID(),
 				formid,
 				uPlugin.Values,
 			)
+			emphasis := p.GetEmphasisID()
+			if emphasis == "" {
+				emphasis = "1"
+			}
+			msg.SetEmphasis(emphasis)
 
+			log.Printf("send a %s(%s) message to %s", uPlugin.PluginType, uPlugin.PluginID, uPlugin.UserID)
 			return wechat.SendMsg(msg)
 		}
 
@@ -45,7 +53,7 @@ func Schedual(store storage.Storage) {
 	// crontab
 	c := crontab.New()
 	c.AddFunc(
-		"@every 1m",
+		"0 * * * * *",
 		func() {
 			curtime := time.Now().Round(time.Minute).Unix()
 			store.FetchTasks(curtime, pluginExecutor)
