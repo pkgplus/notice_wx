@@ -22,4 +22,5 @@ func InitRouter(app *iris.Application) {
 
 	// plugin
 	api.Post("/session/:sid/plugins", handlers.SessionCheck, handlers.AddUserPlugin)
+	api.Delete("/session/:sid/plugins/:pluginid", handlers.SessionCheck, handlers.DeleteUserPlugin)
 }
