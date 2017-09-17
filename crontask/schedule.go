@@ -25,6 +25,7 @@ func Schedual(store storage.Storage) {
 			return err
 		}
 
+		// shouldNotice = true
 		if shouldNotice {
 			formid, err := store.PopEnergy(uPlugin.UserID)
 			if err != nil {

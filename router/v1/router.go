@@ -21,6 +21,7 @@ func InitRouter(app *iris.Application) {
 	api.Get("/session/:sid/energy/one", handlers.SessionCheck, handlers.PopEnergy)
 
 	// plugin
+	api.Get("/session/:sid/plugins", handlers.SessionCheck, handlers.ListUserPlugins)
 	api.Post("/session/:sid/plugins", handlers.SessionCheck, handlers.AddUserPlugin)
 	api.Delete("/session/:sid/plugins/:pluginid", handlers.SessionCheck, handlers.DeleteUserPlugin)
 }
