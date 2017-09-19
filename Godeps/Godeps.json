@@ -308,31 +308,31 @@
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/plugin",
-			"Rev": "49a6716c4248d17d595ffba1bc34e349c5d64e12"
+			"Rev": "6bf5f3ee41874b3620c732dae2325af882749659"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/plugin/cron",
-			"Rev": "49a6716c4248d17d595ffba1bc34e349c5d64e12"
+			"Rev": "6bf5f3ee41874b3620c732dae2325af882749659"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/plugin/hrsign",
-			"Rev": "49a6716c4248d17d595ffba1bc34e349c5d64e12"
+			"Rev": "6bf5f3ee41874b3620c732dae2325af882749659"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/storage",
-			"Rev": "49a6716c4248d17d595ffba1bc34e349c5d64e12"
+			"Rev": "6bf5f3ee41874b3620c732dae2325af882749659"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/storage/redis",
-			"Rev": "49a6716c4248d17d595ffba1bc34e349c5d64e12"
+			"Rev": "6bf5f3ee41874b3620c732dae2325af882749659"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/user",
-			"Rev": "49a6716c4248d17d595ffba1bc34e349c5d64e12"
+			"Rev": "6bf5f3ee41874b3620c732dae2325af882749659"
 		},
 		{
 			"ImportPath": "github.com/xuebing1110/noticeplat/wechat",
-			"Rev": "49a6716c4248d17d595ffba1bc34e349c5d64e12"
+			"Rev": "6bf5f3ee41874b3620c732dae2325af882749659"
 		},
 		{
 			"ImportPath": "golang.org/x/crypto/acme",

@@ -43,6 +43,7 @@ func Schedual(store storage.Storage) {
 				emphasis = "1"
 			}
 			msg.SetEmphasis(emphasis)
+			msg.SetPage(p.GetPage())
 
 			log.Printf("send a %s(%s) message to %s", uPlugin.PluginType, uPlugin.PluginID, uPlugin.UserID)
 			return wechat.SendMsg(msg)
