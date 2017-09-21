@@ -92,3 +92,28 @@ func ListUserPlugins(ctx context.Context) {
 
 	ctx.JSON(ups)
 }
+
+func GetUserPlugin(ctx context.Context) {
+	// storage
+	store, ok := GetStorage(ctx)
+	if !ok {
+		SendResponse(ctx, http.StatusInternalServerError, "context exception for getting storage", "")
+		return
+	}
+
+	uid := ctx.Values().GetString(CONTEXT_OPENID_TAG)
+	// unionid := ctx.Values().GetString(CONTEXT_UNION_TAG)
+	if uid == "" {
+		SendResponse(ctx, http.StatusInternalServerError, "read openid failed from context", "")
+		return
+	}
+
+	pluginid := ctx.Params().Get("pluginid")
+	up, err := store.GetUserPlugin(uid, pluginid)
+	if err != nil {
+		SendResponse(ctx, http.StatusInternalServerError, "delete user plugin failed", err.Error())
+		return
+	}
+
+	ctx.JSON(up)
+}
