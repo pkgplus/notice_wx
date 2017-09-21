@@ -111,7 +111,7 @@ func GetUserPlugin(ctx context.Context) {
 	pluginid := ctx.Params().Get("pluginid")
 	up, err := store.GetUserPlugin(uid, pluginid)
 	if err != nil {
-		SendResponse(ctx, http.StatusInternalServerError, "delete user plugin failed", err.Error())
+		SendResponse(ctx, http.StatusInternalServerError, "get user plugin failed", err.Error())
 		return
 	}
 
