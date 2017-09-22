@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"sort"
 
 	"github.com/kataras/iris/context"
 	"github.com/xuebing1110/noticeplat/user"
@@ -89,6 +90,10 @@ func ListUserPlugins(ctx context.Context) {
 		SendResponse(ctx, http.StatusInternalServerError, "delete user plugin failed", err.Error())
 		return
 	}
+
+	sort.Slice(ups, func(i, j int) bool {
+		return ups[i].CreateTime < ups[j].CreateTime
+	})
 
 	ctx.JSON(ups)
 }
